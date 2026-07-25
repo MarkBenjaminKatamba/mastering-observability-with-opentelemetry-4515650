@@ -7,8 +7,11 @@ const {
 const {
   getNodeAutoInstrumentations
 } = require("@opentelemetry/auto-instrumentations-node");
+const {
+  MongoDBInstrumentation
+} = require("@opentelemetry/instrumentation-mongodb");
 
-const { Resource } = require("@opentelemetry/resources");
+const { resourceFromAttributes } = require("@opentelemetry/resources");
 const {
   SEMRESATTRS_SERVICE_NAME,
   SEMRESATTRS_SERVICE_VERSION
@@ -16,7 +19,7 @@ const {
 
 module.exports = (serviceName, serviceVersion) => {
   const sdk = new NodeSDK({
-    resource: new Resource({
+    resource: resourceFromAttributes({
       [SEMRESATTRS_SERVICE_NAME]: serviceName,
       [SEMRESATTRS_SERVICE_VERSION]: serviceVersion
     }),

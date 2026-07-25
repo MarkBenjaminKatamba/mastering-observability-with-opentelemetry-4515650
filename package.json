@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@opentelemetry/instrumentation-mongodb": "^0.73.0"
+  }
+}
