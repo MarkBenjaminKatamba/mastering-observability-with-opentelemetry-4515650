@@ -1,4 +1,4 @@
-# Start Service with OTel Agent
+# Start Service with OTel 
 opentelemetry-instrument --traces_exporter otlp --metrics_exporter otlp --logs_exporter otlp --service_name gateway flask run --port 3001
 
 # Enable OTel Log Instrumentation

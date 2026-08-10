@@ -40,9 +40,9 @@ def index():
         response = requests.get(url)
         duration = time.time() - start_time
         api_duration.set(duration, {"choice": choice})
-
+        
         log.info("*** Called backend %s with choice %s and it took %s ms", url, choice, duration)
-
+        
         # Increment or reset the toggle based on its current value
         toggle = toggle + 1 if toggle < 3 else 0
         if response.status_code > 299:
